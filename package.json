@@ -8,9 +8,6 @@
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "svelte-kit sync || echo",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "deploy:vercel": "npm run build && vercel deploy --prod --prebuilt",
     "lint": "eslint . && prettier --check .",
     "format": "prettier --write ."
   },
