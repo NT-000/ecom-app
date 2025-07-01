@@ -33,7 +33,7 @@ export async function POST({ request }) {
 		attachments: [
 			{
 				content: base64Pdf,
-				fileName: 'Ebook - Enter The Loop',
+				filename: 'Ebook - Enter The Loop.pdf',
 				type: 'application/pdf',
 				disposition: 'attachment'
 			}
