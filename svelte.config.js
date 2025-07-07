@@ -1,9 +1,9 @@
-import adapter from '@sveltejs/adapter-auto';
+import vercel from '@sveltejs/adapter-vercel';
 
 /** @type {import('@sveltejs/kit').Config} */
 export default {
 	kit: {
-		adapter: adapter(),
+		adapter: vercel(),
 		alias: {
 			$components: 'src/lib/components',
 			$assets: 'src/assets'

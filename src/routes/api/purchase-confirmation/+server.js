@@ -2,6 +2,8 @@ import { json } from '@sveltejs/kit';
 import sgMail from '@sendgrid/mail';
 import { SENDGRID_API_KEY } from '$env/static/private';
 
+console.log('SENDGRID_API_KEY:', SENDGRID_API_KEY);
+
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 const PDF_GUIDE_URL =
@@ -40,7 +42,9 @@ export async function POST({ request }) {
 		]
 	};
 
+	console.log(' mail til:', customerEmail);
 	await sgMail.send(message);
+	console.log('mail sendt!');
 
 	return json({ success: true, response: 'Email sent successfully.' });
 }
