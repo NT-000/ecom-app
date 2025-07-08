@@ -24,7 +24,7 @@ export async function POST({ request }) {
 		const stripeEvent = stripe.webhooks.constructEvent(body, signature, STRIPE_WEBHOOK_SECRET);
 
 		const customerEmail = stripeEvent.data.object.customer_details.email;
-		const customerName = stripeEvent.customer_details.name;
+		const customerName = stripeEvent.data.object.customer_details.name;
 
 		const response = await fetch(PDF_GUIDE_URL);
 		const pdfBuffer = await response.arrayBuffer();
