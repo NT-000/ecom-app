@@ -11,6 +11,7 @@ const PDF_GUIDE_URL =
 
 export async function POST({ request }) {
 	const req = await request.json();
+	console.log('Stripe webhook payload:', JSON.stringify(req, null, 2));
 
 	const response = await fetch(PDF_GUIDE_URL);
 	const pdfBuffer = await response.arrayBuffer();
