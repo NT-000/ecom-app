@@ -43,9 +43,13 @@ export async function POST({ request }) {
 		]
 	};
 
-	console.log(' mail til:', customerEmail);
-	await sgMail.send(message);
-	console.log('mail sendt!');
+	try {
+		console.log('sender epost til:', customerEmail);
+		await sgMail.send(message);
+		console.log('epost sendt ok');
+	} catch (error) {
+		console.error('sendGrid-feil:', error.response ? error.response.body : error);
+	}
 
 	return json({ success: true, response: 'Email sent successfully.' });
 }
